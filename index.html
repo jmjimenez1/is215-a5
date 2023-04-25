@@ -1,0 +1,41 @@
+<html>
+
+<head>
+	
+	<style>
+		li:not(:first-child) {
+		  display: none;
+		}
+	</style>
+	
+</head>
+
+<body>
+	<h1>IS 215 A5 - Group 2</h1>
+
+	<form method="POST" action="/newgame">
+		<input type="hidden" name="category" id="category" value="{{ category }}" />
+		<input type="hidden" name="answer" id="answer" value="{{ answer }}" />
+		<input type="hidden" name="clues" id="clues" value="{{ clues }}" />
+		
+		<h2>Category: {{ category }}</h2>
+		
+		<label for="clues">What is your guess?</label>
+		<input type="text" name="guess" id="guess" oninput="this.value = this.value.toUpperCase();" />
+		<button type="button" id="checkAnswerButton" onClick="checkAnswer()">Check Answer</button>
+		<br />
+		<ul id="clueList">
+		{% for clue in clues %}
+            <li class="hidden-text">{{ clue }}</li>
+        {% endfor %}
+		</ul>
+		
+		<br />
+		<br />
+		<input type="submit" id="newgameButton" style="display: none;" value="New Game" />
+
+	</form>
+	
+</body>
+
+</html>
