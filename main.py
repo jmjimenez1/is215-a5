@@ -20,3 +20,11 @@ def newgame():
     fields = prepareFields()
     
     return render_template('index.html', category=fields[0], answer=fields[1], clues=fields[2])
+
+def cleanClues(clues):
+    finalClues = []
+    for clue in clues:
+        if( len(clue) > 0 and clue[0].isdigit() ):
+            finalClues.append(clue)
+            
+    return finalClues
