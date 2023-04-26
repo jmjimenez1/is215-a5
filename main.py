@@ -20,7 +20,3 @@ def newgame():
     fields = prepareFields()
     
     return render_template('index.html', category=fields[0], answer=fields[1], clues=fields[2])
-
-
-def cleanClues(clues):
-    finalClues = []

@@ -1,3 +1,5 @@
+#IS215-A5 Group 2
+
 import os
 import openai
 import random
