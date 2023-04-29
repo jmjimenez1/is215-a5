@@ -29,7 +29,7 @@ def cleanClues(clues):
             
     return finalClues
 
-   def prepareFields():
+def prepareFields():
     fields = []
     
     categories = ["Philippine City", "Filipino Actor or Actress", "Philippine President", "Filipino Food", "Philippine Province", "Philippine Tourist Spot", "Filipino Dessert", "Filipino TV Show", "Filipino Band", "Filipino Snack"]

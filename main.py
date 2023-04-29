@@ -21,6 +21,7 @@ def newgame():
     
     return render_template('index.html', category=fields[0], answer=fields[1], clues=fields[2])
 
+
 def cleanClues(clues):
     finalClues = []
     for clue in clues:
@@ -28,6 +29,7 @@ def cleanClues(clues):
             finalClues.append(clue)
             
     return finalClues
+
 
 def prepareFields():
     fields = []
