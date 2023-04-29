@@ -36,6 +36,39 @@
 
 	</form>
 	
+	<script>
+		let attempts = 0;
+		
+		const list = document.getElementById('clueList');
+		const items = list.getElementsByTagName('li');
+		const answer = document.getElementById('answer').value;
+		
+		function checkAnswer() {
+			var guess = document.getElementById('guess').value;
+			
+			attempts++;
+			
+			if(guess != answer) {
+			
+				if (attempts < items.length) {
+					items[attempts].style.display = 'block';
+					
+				} else {
+					if(attempts >= 9) {
+						alert("You lose. The correct answer is: " + answer);
+						document.getElementById("checkAnswerButton").disabled=true;
+						document.getElementById('newgameButton').style.display = 'block';
+					}
+				}
+			} else {
+				alert("You are correct");
+				document.getElementById("checkAnswerButton").disabled=true;
+				document.getElementById('newgameButton').style.display = 'block';
+			}
+			
+		}
+	</script>
+	
 </body>
 
 
