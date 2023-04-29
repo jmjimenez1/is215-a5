@@ -30,13 +30,6 @@ def cleanClues(clues):
             
     return finalClues
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 7567034e4a10a1b5559022a3e126b167fac3b760
-=======
->>>>>>> bd9f002d01ae99c228c53f514548e63963418ef1
 def prepareFields():
     fields = []
     
