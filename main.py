@@ -30,7 +30,6 @@ def cleanClues(clues):
             
     return finalClues
 
-
 def prepareFields():
     fields = []
     
