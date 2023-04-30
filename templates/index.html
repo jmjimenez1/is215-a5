@@ -46,22 +46,24 @@
 	<center><u>Instructions</u>: Given a category, guess the Filipino word/s being referred by the clue/s provided. Input your guess in the box provided and click the 'Check Answer' button.
 	
 	You have 10 attempts to guess the word. Another clue will show for every incorrect attempt.</center>
-	<hr>
-	<center><h2><img src="{{ url_for('serve_static', path='categories.png') }}" width="50px" height="50px">&nbsp;Category: <font color="red"><b>{{ category }}</b></h2></center></font>
 	
-	<br />
 	
 	<form method="POST" action="/newgame">
+		<center>&nbsp;&nbsp;<input type="submit" id="newgameButton" style="display: none;" value="New Game" /></center><br />
+		
+		<hr>
+		<center><h2><img src="{{ url_for('serve_static', path='categories.png') }}" width="50px" height="50px">&nbsp;Category: <font color="red"><b>{{ category }}</b></h2></center></font>
+		
 		<input type="hidden" name="category" id="category" value="{{ category }}" />
 		<input type="hidden" name="answer" id="answer" value="{{ answer }}" />
 		<input type="hidden" name="clues" id="clues" value="{{ clues }}" />
 		
 		
 		
+		
 		<label for="clues">What is your guess?&nbsp;&nbsp;</label>
 		<input type="text" name="guess" id="guess" oninput="this.value = this.value.toUpperCase();" />&nbsp;&nbsp;
 		<button type="button" id="checkAnswerButton" onClick="checkAnswer()">Check Answer</button>
-		<br /><br />
 		
 		<h4><img src="{{ url_for('serve_static', path='question.png') }}" width="60px" height="60px">&nbsp;<u>Clues:</u></h4>
 		
@@ -73,7 +75,7 @@
 		
 		<br />
 		<br />
-		<input type="submit" id="newgameButton" style="display: none;" value="New Game" />
+		
 
 	</form>
 	

@@ -49,21 +49,18 @@
 	<hr>
 	<center><h2><img src="{{ url_for('serve_static', path='categories.png') }}" width="50px" height="50px">&nbsp;Category: <font color="red"><b>{{ category }}</b></h2></center></font>
 	
-	<br />
-	
 	<form method="POST" action="/newgame">
 		<input type="hidden" name="category" id="category" value="{{ category }}" />
 		<input type="hidden" name="answer" id="answer" value="{{ answer }}" />
 		<input type="hidden" name="clues" id="clues" value="{{ clues }}" />
 		
-		
+		<center>&nbsp;&nbsp;<input type="submit" id="newgameButton" style="display: none;" value="New Game" /></center><br />
 		
 		<label for="clues">What is your guess?&nbsp;&nbsp;</label>
 		<input type="text" name="guess" id="guess" oninput="this.value = this.value.toUpperCase();" />&nbsp;&nbsp;
 		<button type="button" id="checkAnswerButton" onClick="checkAnswer()">Check Answer</button>
-		<br /><br />
 		
-		<h4><img src="{{ url_for('serve_static', path='question.png') }}" width="80px" height="80px">&nbsp;<u>Clues:</u></h4>
+		<h4><img src="{{ url_for('serve_static', path='question.png') }}" width="60px" height="60px">&nbsp;<u>Clues:</u></h4>
 		
 		<ul id="clueList">
 		{% for clue in clues %}
@@ -73,7 +70,7 @@
 		
 		<br />
 		<br />
-		<input type="submit" id="newgameButton" style="display: none;" value="New Game" />
+		
 
 	</form>
 	
