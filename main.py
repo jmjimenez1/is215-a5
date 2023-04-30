@@ -4,7 +4,7 @@ import os
 import openai
 import random
 
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, url_for, send_from_directory
 
 app = Flask(__name__)
 
@@ -14,6 +14,10 @@ def index():
     
     return render_template('index.html', category=fields[0], answer=fields[1], clues=fields[2])
 
+
+@app.route('/static/<path:path>')
+def serve_static(path):
+    return send_from_directory('static', path)
 
 @app.route('/newgame', methods=['POST'])
 def newgame():

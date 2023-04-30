@@ -1,33 +1,74 @@
 <html>
 
 <head>
+	<meta charset="utf-8">
+    <title>All About Filipino Guessing Game</title>
+	<link href="{{ url_for('serve_static', path='pinoy.ico') }}" rel="icon">
 	
 	<style>
 		li:not(:first-child) {
 		  display: none;
 		}
+		
+		.center{
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		ul {
+			list-style-type: none;
+		}
 	</style>
+	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 </head>
 
 <body>
-	<h1>IS 215 A5 - Group 2</h1>
-
+	<center>
+		<h1>
+			<img src="{{ url_for('serve_static', path='pinoy.jpg') }}" width="100px" height="100px">
+			&nbsp;&nbsp;&nbsp;
+			<b>All About Filipino Guessing Game</b>
+			&nbsp;&nbsp;&nbsp;
+			<img src="{{ url_for('serve_static', path='pinoy.jpg') }}" width="100px" height="100px">
+		</h1>
+		<h4>By IS 215 A5 - Group 2</h4>
+	</center>
+	
+	
+	<hr>
+	<center><u>Instructions</u>: Given a category, guess the Filipino word/s being referred by the clue/s provided. Input your guess in the box provided and click the 'Check Answer' button.
+	
+	You have 10 attempts to guess the word. Another clue will show for every incorrect attempt.</center>
+	<hr>
+	<center><h2><img src="{{ url_for('serve_static', path='categories.png') }}" width="50px" height="50px">&nbsp;Category: <font color="red"><b>{{ category }}</b></h2></center></font>
+	
+	<br />
+	
 	<form method="POST" action="/newgame">
 		<input type="hidden" name="category" id="category" value="{{ category }}" />
 		<input type="hidden" name="answer" id="answer" value="{{ answer }}" />
 		<input type="hidden" name="clues" id="clues" value="{{ clues }}" />
 		
-		<h2>Category: {{ category }}</h2>
 		
-		<label for="clues">What is your guess?</label>
-		<input type="text" name="guess" id="guess" oninput="this.value = this.value.toUpperCase();" />
+		
+		<label for="clues">What is your guess?&nbsp;&nbsp;</label>
+		<input type="text" name="guess" id="guess" oninput="this.value = this.value.toUpperCase();" />&nbsp;&nbsp;
 		<button type="button" id="checkAnswerButton" onClick="checkAnswer()">Check Answer</button>
-		<br />
+		<br /><br />
+		
+		<h4><img src="{{ url_for('serve_static', path='question.png') }}" width="60px" height="60px">&nbsp;<u>Clues:</u></h4>
+		
 		<ul id="clueList">
 		{% for clue in clues %}
-            <li class="hidden-text">{{ clue }}</li>
-        {% endfor %}
+			<li class="hidden-text">Clue #{{ clue }}</li>
+		{% endfor %}
 		</ul>
 		
 		<br />
@@ -35,6 +76,8 @@
 		<input type="submit" id="newgameButton" style="display: none;" value="New Game" />
 
 	</form>
+	
+
 	
 	<script>
 		let attempts = 0;
